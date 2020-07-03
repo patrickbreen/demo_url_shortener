@@ -1,9 +1,9 @@
-#URL Shortener
+# URL Shortener
 
 
-##Python, Flask, Docker, Dynamo DB
+## Python, Flask, Docker, Dynamo DB
 
-##Resources:
+## Resources:
 
 blog:
  - https://medium.com/@janhaviC/restapi-using-flask-and-aws-dynamodb-and-deploying-the-image-to-docker-hub-eff1305c15a
@@ -17,10 +17,10 @@ url shortener:
 
 
 
-##Deploy with Docker, Fargate, ECS, and EC2 with load balancer
+## Deploy with Docker, Fargate, ECS, and EC2 with load balancer
 
 
-##TODO:
+## TODO:
 
  - Finish getting working locally with docker, and HTTP routes - POST/create, GET/url-info/:url, GET/url/:url
  - DNS - Route 53
