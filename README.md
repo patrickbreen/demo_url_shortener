@@ -20,16 +20,25 @@ url shortener:
 ## Deploy with Docker, Fargate, ECS, and EC2 with load balancer
 
 
+## Current status:
+Basically works how I want it to locally in development
+
 ## TODO:
 
- - Finish getting working locally with docker, and HTTP routes - POST/create, GET/url-info/:url, GET/url/:url
+### From now on, I'm going to try to make each of these tasks a branch and do good git hygeine (interactive rebase and squash) - just for more practice.
+
+ - Finish getting working locally with docker and docker compose (because why not?)
+ - Unit testing, integration testing with docker (will be integrated into CI)
+ - CI/CD (also local dev build with code formater and tests.)
+ - Deployment on ECS (with docker manually), ECS, and Fargate
+
  - DNS - Route 53
  - HTTPS
  - Virtual Private Cloud and Security
  - Logging
  - Monitoring
  - Cloud Formation
- - CI/CD (also local dev build with code formater and tests.)
+
 
 
 
