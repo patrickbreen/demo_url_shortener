@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>URL Shortener</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+
+	<div class="bg-contact3" style="background-image: url('images/bg-01.jpg');">
+		<div class="container-contact3">
+			<div class="wrap-contact3">
+					<span class="contact3-form-title">
+						URL Shortener
+                    </span>
+                    
+                    <span class="contact3-form-url" id="short-url">
+						
+					</span>
+
+					<div class="wrap-input3 validate-input" data-validate="URL is required">
+						<input class="input3" id="url" type="text" name="url" placeholder="Your Full URL">
+						<span class="focus-input3"></span>
+					</div>
+
+                <div class="container-contact3-form-btn">
+                    <button class="contact3-form-btn" id="submit">
+                        Submit
+                    </button>
+                </div>
+            </div>
+            
+		</div>
+    </div>
+
+
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+
+
+<script>
+    $(document).ready(function(){
+        // click on button submit
+        $("#submit").on('click', function(){
+            // send ajax
+            $.ajax({
+                url: '/url', // url where to submit the request
+                type : "POST", // type of action POST || GET
+                dataType : 'json', // data type
+                contentType: "application/json",
+                data: JSON.stringify({"url": $("#url").val()}),
+                success : function(result) {
+                    // you can see the result from the console
+                    // tab of the developer tools
+                    console.log(result);
+                    $("#short-url").empty();
+                    if ('success' in result) {
+                        $("#short-url").append( '<a href="' + result['success'] +'">' + result['success'] +'</a>' );
+                    } else {
+                        $("#short-url").text('There was an error:' + result['error']);
+                    }
+                    
+                },
+                error: function(xhr, resp, text) {
+                    console.log(xhr, resp, text);
+                }
+            })
+        });
+    });
+
+</script>
+
+	<!-- I think I'm not allowed to delete this based on the license-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
+</body>
+</html>
+
