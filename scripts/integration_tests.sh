@@ -3,6 +3,6 @@ docker-compose build
 docker-compose up -d
 
 # do python tests
-pytest-3 .
+python3.8 -m pytest .
 
 docker-compose down

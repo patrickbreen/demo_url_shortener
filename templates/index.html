@@ -55,6 +55,7 @@
         // click on button submit
         $("#submit").on('click', function(){
             // send ajax
+            console.log("push the button");
             $.ajax({
                 url: '/url', // url where to submit the request
                 type : "POST", // type of action POST || GET

@@ -4,3 +4,4 @@ awscli
 datetime
 simplejson
 pytest
+autopep8

@@ -9,6 +9,9 @@ Everything is incremental. As I learn more AWS, I can keep expanding this projec
 ## Major components: Python, Flask, Docker, Dynamo DB, AWS
 
 ## Important: make sure not to commit AWS credentials to this repositiory!!
+## Important: all scripts and commands assume that the working directory is the root of this repository
+
+`./script/<script>.sh`
 
 
 
@@ -20,34 +23,30 @@ very important AWS documentation to read  - https://docs.aws.amazon.com/index.ht
 
 ## Test
 
- - run unit tests locally TODO
- - run integration tests locally (with docker) TODO
-
-## Docker
-
- - build - `docker build --tag=myapi .`
- - run locally - TODO
- - docker compose - because `docker compose up` is the best
- - ECS or fargate deployment - https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_AWSCLI_Fargate.html
+Run integration tests locally (with docker). From root of repository: `./scripts/integration_tests.sh`
 
 
- ## Elastic Beanstock Deployment
- TODO (there is a flask example elastic beanstock deployment on AWS docs)
+## Auto Format
 
- ## EC2 Deployment
+`./scripts/auto_format.sh`
+
+## Use Docker Locally
+
+ - build - `docker-compose build`
+ - run locally in development `./scripts/run_dev.sh`
+
+## Deployment - EC2
+
  TODO
-
+ - User data script and install instructions.
  - Make a cloudformation template that can launch the EC2 infrastructure
 
+## Deplyment - ECS
+ 
+ TODO: ECS or fargate deployment - https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_AWSCLI_Fargate.html
 
-
-
-
-## Current status:
-Basically works how I want it to locally in development from a UX perspective, and docker is basically there on a dev perspective, I need to finish tests, style checking, logging, and refactor.
-
-Then add AWS deployments/services as I learn them.
-
+## Deployment - Elastic Beanstock 
+ TODO (there is a flask example elastic beanstock deployment on AWS docs)
 
 
 
@@ -56,25 +55,32 @@ Then add AWS deployments/services as I learn them.
 
 Tasks:
 
- 1. Finish getting Dev environment set up: tests, code style formatting, logging, refactor, HTTP error messages/codes
- 2. Deploy to Elastic Beanstock via CLI, with DNS and HTTPS
- 3. Deploy to EC2 in VPC via CLI, with DNS and HTTPS
+ 1. Finish getting Dev environment set up.
+    - cloud watch logging
+    - refactor to use correct HTTP error codes
+
+ 2. Deploy to EC2
+    - make install.sh, run_production.sh, ec2_user_data.sh
+    - make cloud formation provisioning
+    - Deploy to EC2 VPC via CLI
+    - Add DNS and Application ELB
+    - Put HTTPS on Application ELB
+    - Integrate CI/CD to auto deploy
+
+
+ 3. Deploy to Elastic Beanstock via CLI
+    - DNS and HTTPS
  4. Deploy to ECS or Fargate with CLI, DNS, HTTPS,
- 5. Add cloudformation
- 6. Add cloud watch
- 7. Add CI/CD
+    - CI/DC
+    - DNS and HTTPS
 
 
- - CI/CD (also local dev build with code formater and tests.)
- - DNS - Route 53
- - HTTPS
+ 
  - Virtual Private Cloud and Security stuff (document or describe this?? or cloud formation??)
- - Logging
- - Monitoring
+ - Logging/Monitoring with cloud watch
  - Cloud Formation / AWS CLI scripts
 
-
-
+ - github CI/DC integration. https://vocal.media/01/ci-cd-using-git-hub-actions
 
 
 
