@@ -38,7 +38,7 @@ Run integration tests locally (with docker). From root of repository: `./scripts
 ## Deployment - EC2
 
  TODO
- - User data script and install instructions.
+ - User data script just build and/or run docker container in EC2.
  - Make a cloudformation template that can launch the EC2 infrastructure
 
 ## Deplyment - ECS
@@ -60,7 +60,7 @@ Tasks:
     - refactor to use correct HTTP error codes
 
  2. Deploy to EC2
-    - make install.sh, run_production.sh, ec2_user_data.sh
+    - make run_production.sh, ec2_user_data.sh (just use docker to install and run within EC2)
     - make cloud formation provisioning
     - Deploy to EC2 VPC via CLI
     - Add DNS and Application ELB

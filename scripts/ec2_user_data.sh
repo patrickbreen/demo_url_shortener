@@ -7,11 +7,10 @@ git clone http://github.com/patrickbreen/demo_url_shortener
 cd demo_url_shortener
 
 # install dependencies
-./scripts/install.sh # docker, AWS, python, etc
-sudo python3.8 -m pip install -r requirements.txt
+./scripts/install.sh # docker, AWS
 
 # test
 ./scripts/integration_tests
 
-# run
+# run - change the docker configuration to run just the web server and use the non-local dynamoDB
 ./scripts/run_production.sh
