@@ -56,23 +56,28 @@ Run integration tests locally (with docker). From root of repository: `./scripts
 Tasks:
 
  1. Finish getting Dev environment set up.
-    - cloud watch logging
-    - refactor to use correct HTTP error codes
+    - [1] cloud watch logging (going to use watchtower, even though I want to be learning boto3)
+      - dynamically mount .aws config and creds in docker application in development
+    - [*] refactor to use correct HTTP error codes
 
  2. Deploy to EC2
     - make run_production.sh, ec2_user_data.sh (just use docker to install and run within EC2)
     - make cloud formation provisioning
-    - Deploy to EC2 VPC via CLI
-    - Add DNS and Application ELB
     - Put HTTPS on Application ELB
+    - Deploy to EC2 VPC via CLI
     - Integrate CI/CD to auto deploy
+    - Use SSM
 
 
  3. Deploy to Elastic Beanstock via CLI
-    - DNS and HTTPS
+    - [2] CLI deployment of docker application
+    - [3] CI/CD
+    - [4] HTTPS
+
  4. Deploy to ECS or Fargate with CLI, DNS, HTTPS,
-    - CI/DC
-    - DNS and HTTPS
+    - [5] CLI deployment
+    - [6] CI/CD
+    - [7] DNS and HTTPS (this is the only one with DNS)
 
 
  
