@@ -11,7 +11,9 @@ services:
     build: .
     container_name: app-node
     ports:
-     - "8080:4000"
+      - "8080:4000"
+    # volumes:
+    #   - $HOME/.aws/credentials:/app/.aws/credentials:ro
     environment:
       AWS_ACCESS_KEY_ID: 'DUMMYIDEXAMPLE'
       AWS_SECRET_ACCESS_KEY: 'DUMMYEXAMPLEKEY'

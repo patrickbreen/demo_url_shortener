@@ -5,16 +5,16 @@ import logging
 import boto3
 import flask
 from flask import Flask, request, jsonify, redirect, render_template, send_from_directory
-import watchtower
+# import watchtower
 
 app = Flask(__name__, static_url_path='')
 
 
-logging.basicConfig(level=logging.INFO)
-app = flask.Flask("loggable")
-handler = watchtower.CloudWatchLogHandler()
-app.logger.addHandler(handler)
-logging.getLogger("werkzeug").addHandler(handler)
+# logging.basicConfig(level=logging.INFO)
+# app = flask.Flask("loggable")
+# handler = watchtower.CloudWatchLogHandler()
+# app.logger.addHandler(handler)
+# logging.getLogger("werkzeug").addHandler(handler)
 
 
 def get_dynDB_client():
@@ -158,6 +158,7 @@ def create():
         )
         return jsonify({"success": "/url/" + str(item["slug"])})
     except Exception as e:
+        raise(e)
         flask.abort(500)
 
 
